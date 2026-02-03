@@ -28,14 +28,17 @@ body {
 }
 
 .instagram-post {
-  width: 500px; /* bigger post */
+  width: 700px;          /* base size */
+  transform: scale(1.4); /* ACTUAL 1.4× scale */
+  transform-origin: center;
   border: 1px solid #333;
-  border-radius: 15px;
+  border-radius: 18px;
   overflow: hidden;
-  background-color: #000; /* black post */
+  background-color: #000;
   color: #fff;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.5);
+  box-shadow: 0 10px 40px rgba(0,0,0,0.7);
 }
+
 
 /* Header */
 .post-header {
