@@ -2,8 +2,6 @@ body {
   font-family: Arial, sans-serif;
   display: flex;
   justify-content: center;
-  align-items: flex-start;
-  margin: 0;
   padding: 20px;
   background-color: #fafafa;
 }
@@ -45,22 +43,23 @@ body {
   display: flex;
   overflow-x: scroll;
   scroll-snap-type: x mandatory;
-  scrollbar-width: none; /* Firefox */
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
 }
 
 .carousel::-webkit-scrollbar {
-  display: none; /* Chrome/Safari */
+  display: none;
 }
 
 .slide {
-  min-width: 350px;
+  min-width: 100%; /* important for snapping */
   scroll-snap-align: start;
-  text-align: center;
 }
 
 .slide img {
   width: 100%;
   display: block;
+  border-radius: 0;
 }
 
 /* Actions */
@@ -83,6 +82,7 @@ body {
 /* Heart toggle */
 #like-btn {
   transition: color 0.2s;
+  color: black;
 }
 
 #like-btn.liked {
