@@ -2,9 +2,23 @@ body {
   font-family: Arial, sans-serif;
   display: flex;
   justify-content: center;
-  padding: 20px;
-  background-color: #121212; /* dark background */
+  align-items: center;   /* vertical centering */
+  min-height: 100vh;
+  margin: 0;
+  background-color: #121212;
 }
+.hashtags {
+  padding: 2px 16px 8px 16px;
+  font-size: 14px;
+  color: #8e8e8e;     /* Instagram dark-mode grey */
+  line-height: 1.4;
+  user-select: none;
+}
+
+.hashtags span {
+  margin-right: 6px;
+}
+
 
 .slide img {
   user-drag: none;
