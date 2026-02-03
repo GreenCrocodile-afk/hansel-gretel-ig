@@ -44,7 +44,7 @@ body {
 .post-header {
   display: flex;
   align-items: center;
-  padding: 10px;
+  padding: 14px 18px;
 }
 
 .profile-pic {
@@ -118,22 +118,24 @@ body {
 .user-info {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 12px;
+  flex: 1;             
 }
 
 .follow-btn {
+  margin-left: 12px;    /* small breathing room */
   background-color: #0095f6;
   color: white;
   border: none;
-  padding: 6px 12px;
+  padding: 6px 14px;
   border-radius: 8px;
   font-weight: bold;
   cursor: pointer;
 }
 
 .follow-btn.following {
-  background-color: #333;
-  color: #aaa;
+  background-color: #262626;
+  color: #8e8e8e;
   cursor: default;
 }
 
