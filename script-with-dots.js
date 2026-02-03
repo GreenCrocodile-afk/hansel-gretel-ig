@@ -3,21 +3,31 @@ const slides = document.querySelectorAll('.slide');
 const dotsContainer = document.getElementById('dots-container');
 const likeBtn = document.getElementById('like-btn');
 const likeCountEl = document.getElementById('like-count');
+const followBtn = document.getElementById('follow-btn');
 
 let likes = 0;
 
-// Heart toggle & count
+/* =====================
+   LIKE BUTTON
+===================== */
 likeBtn.addEventListener('click', () => {
   likeBtn.classList.toggle('liked');
-  if (likeBtn.classList.contains('liked')) {
-    likes++;
-  } else {
-    likes--;
-  }
-  likeCountEl.textContent = likes + " likes";
+  likes += likeBtn.classList.contains('liked') ? 1 : -1;
+  likeCountEl.textContent = `${likes} likes`;
 });
 
-// Create dots
+/* =====================
+   FOLLOW BUTTON
+===================== */
+followBtn.addEventListener('click', () => {
+  followBtn.textContent = "Following";
+  followBtn.classList.add('following');
+  followBtn.disabled = true;
+});
+
+/* =====================
+   DOTS
+===================== */
 slides.forEach((_, index) => {
   const dot = document.createElement('span');
   dot.classList.add('dot');
@@ -34,14 +44,43 @@ slides.forEach((_, index) => {
   dotsContainer.appendChild(dot);
 });
 
-// Update active dot on scroll
 carousel.addEventListener('scroll', () => {
   const index = Math.round(carousel.scrollLeft / carousel.offsetWidth);
   updateDots(index);
 });
 
 function updateDots(activeIndex) {
-  const dots = document.querySelectorAll('.dot');
-  dots.forEach(dot => dot.classList.remove('active'));
-  dots[activeIndex].classList.add('active');
+  document.querySelectorAll('.dot').forEach((dot, i) => {
+    dot.classList.toggle('active', i === activeIndex);
+  });
 }
+
+/* =====================
+   DRAG TO SCROLL (DESKTOP)
+===================== */
+let isDown = false;
+let startX;
+let scrollLeft;
+
+carousel.addEventListener('mousedown', (e) => {
+  isDown = true;
+  carousel.classList.add('dragging');
+  startX = e.pageX - carousel.offsetLeft;
+  scrollLeft = carousel.scrollLeft;
+});
+
+carousel.addEventListener('mouseleave', () => {
+  isDown = false;
+});
+
+carousel.addEventListener('mouseup', () => {
+  isDown = false;
+});
+
+carousel.addEventListener('mousemove', (e) => {
+  if (!isDown) return;
+  e.preventDefault();
+  const x = e.pageX - carousel.offsetLeft;
+  const walk = (x - startX) * 1.5;
+  carousel.scrollLeft = scrollLeft - walk;
+});
