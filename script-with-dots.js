@@ -2,10 +2,19 @@ const carousel = document.querySelector('.carousel');
 const slides = document.querySelectorAll('.slide');
 const dotsContainer = document.getElementById('dots-container');
 const likeBtn = document.getElementById('like-btn');
+const likeCountEl = document.getElementById('like-count');
 
-// Heart toggle
+let likes = 0;
+
+// Heart toggle & count
 likeBtn.addEventListener('click', () => {
   likeBtn.classList.toggle('liked');
+  if (likeBtn.classList.contains('liked')) {
+    likes++;
+  } else {
+    likes--;
+  }
+  likeCountEl.textContent = likes + " likes";
 });
 
 // Create dots
