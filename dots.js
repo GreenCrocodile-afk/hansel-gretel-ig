@@ -1,11 +1,11 @@
 const carousel = document.querySelector('.carousel');
 const slides = document.querySelectorAll('.slide');
 const dotsContainer = document.getElementById('dots-container');
-const likeBtn2 = document.getElementById('like-btn');
+const likeBtn = document.getElementById('like-btn');
 
 // Heart toggle
-likeBtn2.addEventListener('click', () => {
-  likeBtn2.classList.toggle('liked');
+likeBtn.addEventListener('click', () => {
+  likeBtn.classList.toggle('liked');
 });
 
 // Create dots
@@ -13,6 +13,7 @@ slides.forEach((_, index) => {
   const dot = document.createElement('span');
   dot.classList.add('dot');
   if (index === 0) dot.classList.add('active');
+
   dot.addEventListener('click', () => {
     carousel.scrollTo({
       left: index * carousel.offsetWidth,
@@ -20,6 +21,7 @@ slides.forEach((_, index) => {
     });
     updateDots(index);
   });
+
   dotsContainer.appendChild(dot);
 });
 
