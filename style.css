@@ -101,8 +101,8 @@ body {
 
 .dot {
   display: inline-block;
-  width: 10px;
-  height: 10px;
+  width: 15px;
+  height: 15px;
   margin: 0 5px;
   background-color: #555;
   border-radius: 50%;
