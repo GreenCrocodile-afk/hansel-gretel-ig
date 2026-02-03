@@ -2,6 +2,7 @@ const carousel = document.querySelector('.carousel');
 const slides = document.querySelectorAll('.slide');
 const dotsContainer = document.getElementById('dots-container');
 const likeBtn = document.getElementById('like-btn');
+const saveBtn = document.getElementById('save-btn');
 const likeCountEl = document.getElementById('like-count');
 const followBtn = document.getElementById('follow-btn');
 
@@ -15,6 +16,15 @@ likeBtn.addEventListener('click', () => {
   likes += likeBtn.classList.contains('liked') ? 1 : -1;
   likeCountEl.textContent = `${likes} likes`;
 });
+
+/* =====================
+   SAVE BUTTON
+===================== */
+saveBtn.addEventListener('click', () => {
+  saveBtn.classList.toggle('saved');
+});
+
+
 
 /* =====================
    FOLLOW BUTTON
@@ -81,6 +91,6 @@ carousel.addEventListener('mousemove', (e) => {
   if (!isDown) return;
   e.preventDefault();
   const x = e.pageX - carousel.offsetLeft;
-  const walk = (x - startX) * 1.5;
+  const walk = (x - startX) * 2.5;
   carousel.scrollLeft = scrollLeft - walk;
 });

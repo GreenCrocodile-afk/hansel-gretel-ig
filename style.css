@@ -3,7 +3,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;   /* vertical centering */
-  min-height: 120vh;
+  min-height: 100vh;
   margin: 0;
   background-color: #121212;
 }
@@ -28,8 +28,8 @@ body {
 }
 
 .instagram-post {
-  width: 600px;          /* base size */
-  transform: scale(1.4); /* ACTUAL 1.4× scale */
+  width: 350px;          /* base size */
+  transform: scale(1.5); 
   transform-origin: center;
   border: 1px solid #333;
   border-radius: 18px;
@@ -166,6 +166,17 @@ body {
 #like-btn.liked {
   color: red;
 }
+
+/* Save toggle */
+#save-btn {
+  transition: color 0.2s;
+  color: #fff;
+}
+
+#save-btn.saved {
+  color: gold;
+}
+
 
 /* Like count */
 .like-count {
