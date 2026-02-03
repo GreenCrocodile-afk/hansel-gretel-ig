@@ -3,16 +3,17 @@ body {
   display: flex;
   justify-content: center;
   padding: 20px;
-  background-color: #fafafa;
+  background-color: #121212; /* dark background */
 }
 
 .instagram-post {
-  width: 350px;
-  border: 1px solid #ddd;
+  width: 500px; /* bigger post */
+  border: 1px solid #333;
   border-radius: 15px;
   overflow: hidden;
-  background-color: #fff;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  background-color: #000; /* black post */
+  color: #fff;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.5);
 }
 
 /* Header */
@@ -23,8 +24,8 @@ body {
 }
 
 .profile-pic {
-  width: 35px;
-  height: 35px;
+  width: 40px;
+  height: 40px;
   border-radius: 50%;
   margin-right: 10px;
 }
@@ -36,15 +37,21 @@ body {
 
 .options {
   cursor: pointer;
+  color: #aaa;
 }
 
 /* Carousel */
 .carousel {
   display: flex;
-  overflow-x: scroll;
+  overflow-x: auto;
   scroll-snap-type: x mandatory;
   scroll-behavior: smooth;
   -webkit-overflow-scrolling: touch;
+  cursor: grab;
+}
+
+.carousel:active {
+  cursor: grabbing;
 }
 
 .carousel::-webkit-scrollbar {
@@ -52,7 +59,7 @@ body {
 }
 
 .slide {
-  min-width: 100%; /* important for snapping */
+  min-width: 100%;
   scroll-snap-align: start;
 }
 
@@ -60,33 +67,6 @@ body {
   width: 100%;
   display: block;
   border-radius: 0;
-}
-
-/* Actions */
-.post-actions {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 8px 10px;
-}
-
-.left-icons i {
-  margin-right: 10px;
-  cursor: pointer;
-}
-
-.right-icon {
-  cursor: pointer;
-}
-
-/* Heart toggle */
-#like-btn {
-  transition: color 0.2s;
-  color: black;
-}
-
-#like-btn.liked {
-  color: red;
 }
 
 /* Dots */
@@ -97,15 +77,50 @@ body {
 
 .dot {
   display: inline-block;
-  width: 8px;
-  height: 8px;
-  margin: 0 4px;
-  background-color: #bbb;
+  width: 10px;
+  height: 10px;
+  margin: 0 5px;
+  background-color: #555;
   border-radius: 50%;
   cursor: pointer;
   transition: background-color 0.2s;
 }
 
 .dot.active {
-  background-color: #555;
+  background-color: #fff;
+}
+
+/* Actions */
+.post-actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 10px;
+}
+
+.left-icons i, .right-icons i {
+  margin-right: 10px;
+  cursor: pointer;
+  color: #fff;
+  font-size: 20px;
+}
+
+.right-icons i {
+  margin-right: 0;
+}
+
+/* Heart toggle */
+#like-btn {
+  transition: color 0.2s;
+  color: #fff;
+}
+
+#like-btn.liked {
+  color: red;
+}
+
+/* Like count */
+.like-count {
+  padding: 0 10px 10px 10px;
+  font-weight: bold;
 }
