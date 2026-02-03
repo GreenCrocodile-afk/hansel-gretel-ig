@@ -2,32 +2,98 @@ body {
   font-family: Arial, sans-serif;
   display: flex;
   justify-content: center;
+  align-items: flex-start;
   margin: 0;
+  padding: 20px;
   background-color: #fafafa;
 }
 
 .instagram-post {
   width: 350px;
-  border: 1px solid #ccc;
+  border: 1px solid #ddd;
   border-radius: 15px;
   overflow: hidden;
   background-color: #fff;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
 
+/* Header */
+.post-header {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+}
+
+.profile-pic {
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.username {
+  font-weight: bold;
+  flex-grow: 1;
+}
+
+.options {
+  cursor: pointer;
+}
+
+/* Carousel */
 .carousel {
   display: flex;
   overflow-x: scroll;
   scroll-snap-type: x mandatory;
+  scrollbar-width: none; /* Firefox */
+}
+
+.carousel::-webkit-scrollbar {
+  display: none; /* Chrome/Safari */
 }
 
 .slide {
   min-width: 350px;
   scroll-snap-align: start;
   text-align: center;
-  padding: 10px;
 }
 
 .slide img {
   width: 100%;
-  border-radius: 15px;
+  display: block;
+}
+
+/* Actions */
+.post-actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 10px;
+}
+
+.left-icons i {
+  margin-right: 10px;
+  cursor: pointer;
+}
+
+.right-icon {
+  cursor: pointer;
+}
+
+/* Caption */
+.post-caption {
+  padding: 0 10px 10px 10px;
+  font-size: 14px;
+}
+
+.post-caption .username {
+  font-weight: bold;
+  margin-right: 5px;
+}
+
+.post-caption .time {
+  color: #999;
+  font-size: 12px;
+  display: block;
+  margin-top: 4px;
 }
