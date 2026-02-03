@@ -3,7 +3,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;   /* vertical centering */
-  min-height: 140vh;
+  min-height: 120vh;
   margin: 0;
   background-color: #121212;
 }
@@ -28,7 +28,7 @@ body {
 }
 
 .instagram-post {
-  width: 700px;          /* base size */
+  width: 600px;          /* base size */
   transform: scale(1.4); /* ACTUAL 1.4× scale */
   transform-origin: center;
   border: 1px solid #333;
